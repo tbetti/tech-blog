@@ -1,0 +1,22 @@
+[
+    {
+        "username": "mmoss",
+        "email": "mmoss@itcrowd.com",
+        "password": "password123"
+    },
+    {
+        "username": "roy",
+        "email": "roy@itcrowd.com",
+        "password": "password123"
+    },
+    {
+        "username": "richmond",
+        "email": "richmond@itcrowd.com",
+        "password": "notinroom"
+    },
+    {
+        "username": "jbarber",
+        "email": "jbarber@itcrowd.com",
+        "password": "password123"
+    }
+]

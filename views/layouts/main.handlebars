@@ -1,0 +1,26 @@
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <h1>The Tech Blog</h1>
+        <ul>
+            <li id="dashboard-btn">Dashboard</li>
+            {{#if loggedIn}}
+            <li id="log-out-btn">Log Out</li>
+            <li id="post-btn">Create Post</li>
+            {{else}}
+            <li id="log-in-btn">Log In</li>
+            {{/if}}
+        </ul>
+    </nav>
+    {{{body}}}
+    <script src="/js/index.js"></script>
+    <script src="/js/logout.js"></script>
+</body>
+</html>

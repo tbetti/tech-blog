@@ -1,0 +1,12 @@
+<section class="dashboard">
+    <h3 class="dashboard-head">Post Dashboard:</h3>
+    <div class="posts">
+        {{#each posts}}
+        {{> post_details }}
+        {{/each}}
+    </div>
+</section>
+
+
+{{!-- Create spot for a new post - button with id - newpost.js to run request --}}
+{{!-- Make form with textarea --}}

@@ -5,6 +5,9 @@ const { Post, User } = require('../models');
 // GET route to login page
 router.get('/', (req, res) => {
     try {
+        if(req.session.loggedIn){
+            res.redirect('/dashboard');
+        }
         res.render('login');
     } catch {
         res.json('error');

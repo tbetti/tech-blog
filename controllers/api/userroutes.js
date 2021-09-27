@@ -31,12 +31,26 @@ router.get('/:id', async(req, res) =>{
 })
 
 // Create a new user
-router.post('/', async(req, res) =>{
+router.post('/register', async (req, res) =>{
     try{
-        const newUser = req.body;
-        await User.create(newUser);
+        const usernameExists = await User.findOne({
+            where: {username: req.body.username}
+        });
+        const emailExists = await User.findOne({
+            where: {email: req.body.email}
+        });
 
-        res.status(200).json('Successfully created!');
+        if(!usernameExists && !emailExists){
+            const newUser = {
+                email: req.body.email,
+                username: req.body.username,
+                password: req.body.password
+            }
+            await User.create(newUser);
+    
+            res.status(200).json('Successfully created!');
+        }
+
     }catch(err){
         res.status(500).json(err);
     }

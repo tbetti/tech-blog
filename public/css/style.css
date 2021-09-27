@@ -85,10 +85,17 @@
     background-color: var(--middle);
 }
 
-.login-failed{
-    color: red;
+.message{
     margin: 3%;
     text-align: center;
+}
+
+.login-failed, .register-failed{
+    color: red;
+}
+
+.register-success{
+    color: green
 }
 
 /* Styling for Dashbard */

@@ -6,6 +6,9 @@ const registerHandler = async (event) =>{
     const username = document.querySelector('#create-username').value.trim();
     const password = document.querySelector('#create-password').value.trim();
 
+    const successMessage = document.querySelector('#register-success');
+    const errorMessage = document.querySelector('#register-failed');
+
     // Fetch api to create new user
     if (email && username && password){
         const response = await fetch('/api/user/register', {
@@ -15,11 +18,12 @@ const registerHandler = async (event) =>{
         });
 
         if(response.ok){
-            // If login information is correct, take user to the dashboard
-            document.location.replace('/dashboard');
+            // Display success message if user registration succeeds
+            // errorMessage.style.display = 'none';
+            successMessage.style.display = 'block';
         }else{
-            // fill in something here
-            // ie username or email already exists
+            // Display error message if register fails
+            errorMessage.style.display = 'block';
         }
     }
 }

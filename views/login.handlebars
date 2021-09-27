@@ -14,7 +14,7 @@
                 <input type="password" id="password" name="password"><br>
             </div>
             <input type="submit" value="Login" class="submit">
-            <p id="login-failed" class="login-failed" style="display:none">Username or password incorrect</p>
+            <p id="login-failed" class="message login-failed" style="display:none">Username or password incorrect</p>
         </form>
     </div>
     {{!-- Right section to create a new profile --}}
@@ -34,6 +34,8 @@
                 <input type="password" id="create-password" name="password"><br>
             </div>
             <input type="submit" value="Create Profile" class="submit">
+            <p id="register-failed" class="message register-failed" style="display:none">Email or username already exists</p>
+            <p id="register-success" class="message register-success" style="display:none">New user created!  Use the form to the left to log in!</p>
         </form>
     </div>
 </div>

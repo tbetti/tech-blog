@@ -15,9 +15,9 @@ const loginHandler = async (event) =>{
             // If login information is correct, take user to the dashboard
             document.location.replace('/dashboard')
         }else{
-            // Don't know what to put here
-            // I want the page to display "invalid username or password"
-            // Needs to redirect back to login if invalid
+            // Display error message if login fails
+            const errorMessage = document.querySelector('#login-failed');
+            errorMessage.style.display = 'block';
         }
     }
 };

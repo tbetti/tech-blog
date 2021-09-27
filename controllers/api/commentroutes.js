@@ -22,12 +22,12 @@ router.get('/', async (req, res) => {
 // Add back in withAuth
 router.post('/', withAuth, async (req, res) => {
     try {
-        // how will we get user_id?
+        // how will we get post_id?
         const commentBody = 
         {
             comment: req.body.newComment,
             user_id: req.session.userId,
-            post_id: 3
+            post_id: req.body.dataId
         }
         console.log(commentBody);
         const newComment = await Comment.create(commentBody);

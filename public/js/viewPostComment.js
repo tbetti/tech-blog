@@ -2,11 +2,12 @@ const commentHandler = async (event) =>{
     event.preventDefault();
 
     const newComment = document.querySelector('#new-comment').value.trim();
+    const dataId = document.querySelector('.card').dataset.id;
 
     if(newComment){
         const response = await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({newComment}),
+            body: JSON.stringify({newComment, dataId}),
             headers: ({'Content-Type': 'application/json'})
         });
 

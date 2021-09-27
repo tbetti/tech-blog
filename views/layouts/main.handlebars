@@ -10,10 +10,11 @@
     <nav class="nav-bar">
         <h1>The Tech Blog</h1>
         <ul>
+            <li id="home-btn">Home</li>
             <li id="dashboard-btn">Dashboard</li>
             {{#if loggedIn}}
-            <li id="log-out-btn">Log Out</li>
             <li id="post-btn">Create Post</li>
+            <li id="log-out-btn">Log Out</li>
             {{else}}
             <li id="log-in-btn">Log In</li>
             {{/if}}

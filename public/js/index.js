@@ -2,9 +2,17 @@
 const dashBtn = document.querySelector('#dashboard-btn');
 const postBtn = document.querySelector('#post-btn');
 const postCard = document.querySelectorAll('.card');
+const loginBtn = document.querySelector('#log-in-btn');
+const homeBtn = document.querySelector('#home-btn');
 
 // Handlers to go to different pages when elements are selected
-// Return to dashboard
+// Go to homepage
+const homeHandler = (event) =>{
+    event.preventDefault();
+
+    document.location.replace('/');
+}
+// Go to dashboard
 const dashHandler = (event) =>{
     event.preventDefault();
 
@@ -26,10 +34,22 @@ const postCardHandler = (event) =>{
         document.location.replace(`/post/${cardId}`);
     }
 }
+// Go to login page
+const loginBtnHandler = (event) =>{
+    event.preventDefault();
+    
+    document.location.replace('/login');
+}
 
 // Assign elements to handlers
+homeBtn.addEventListener('click', homeHandler);
 dashBtn.addEventListener('click', dashHandler);
-postBtn.addEventListener('click', newPostHandler);
+if(postBtn){
+    postBtn.addEventListener('click', newPostHandler);
+}
+if(loginBtn){
+    loginBtn.addEventListener('click', loginBtnHandler);
+}
 postCard.forEach(element =>{
     element.addEventListener('click', postCardHandler);
 });

@@ -35,7 +35,7 @@ router.get('/:id', async(req, res) =>{
 // Add new post
 router.post('/', withAuth, async(req, res) =>{
     try{
-        // how will we get user_id?
+        // Read in new post from body (connected at public/js/newPost.js)
         const postBody = {
             post: req.body.newPost, 
             user_id: req.session.userId

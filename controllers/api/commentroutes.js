@@ -20,18 +20,18 @@ router.get('/', async (req, res) => {
 
 // Add new comment
 // Add back in withAuth
-router.post('/',async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         // how will we get user_id?
-        // const commentBody = 
-        // //{
-        //     // comment: req.body.newComment,
-        //     // user_id: req.session.userId,
-        //     // post_id: 1
-        // //}
-        // console.log(commentBody);
-        // const newComment = await Comment.create(commentBody);
-        const newComment = await Comment.create(req.body);
+        const commentBody = 
+        {
+            comment: req.body.newComment,
+            user_id: req.session.userId,
+            post_id: 3
+        }
+        console.log(commentBody);
+        const newComment = await Comment.create(commentBody);
+        // const newComment = await Comment.create(req.body);
 
         res.status(200).json(newComment);
     } catch (err) {

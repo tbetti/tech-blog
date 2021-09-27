@@ -45,19 +45,28 @@ router.get('/create-post', withAuth, (req, res) => {
     }
 })
 
+// GET route to page with individual post and its comments
 router.get('/post/:id', withAuth, async (req, res) => {
     try {
         // find post by id
         const rawPost = await Post.findByPk(req.params.id,
             {
-                include: [{ model: User }]
+                include: [{ model: User }, 
+                    //{ model: Comment }
+                ]
             });
+
+        // if I try the code below, the page renders blank with {}.
+        // const post = rawPost.map(p=> p.get({plain:true}));
+        // if I try the code below, the page renders, but I can't get the corect values read in
+        // this piece of code also stops working when I add {model: Comment (line 55)}
         const post = rawPost.dataValues;
-        
         console.log(post);
         res.render('view_post', {
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            // Adding this because I will need to read it in for the comment
+            user: {username: req.session.username}, 
         });
     } catch (err) {
         res.json(err);

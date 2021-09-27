@@ -1,0 +1,27 @@
+[
+    {
+        "comment": "I agree!",
+	    "user_id": 1,
+	    "post_id": 1
+    },
+    {
+        "comment": "I disagree!",
+	    "user_id": 1,
+	    "post_id": 2
+    },
+    {
+        "comment": "Great work!",
+	    "user_id": 2,
+	    "post_id": 3
+    },
+    {
+        "comment": "I'm not sure about this...",
+	    "user_id": 3,
+	    "post_id": 3
+    },
+    {
+        "comment": "This is my comment",
+	    "user_id": 4,
+	    "post_id": 1
+    }
+]

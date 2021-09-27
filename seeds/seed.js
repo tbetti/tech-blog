@@ -1,7 +1,8 @@
 // Import models and data
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 const userData = require('./userData.json');
 const postData = require('./postData.json');
+const commentData = require('./commentData.json')
 
 // Establish sequelize connection
 const sequelize = require('../config/connection');
@@ -16,6 +17,8 @@ const seedAll = async() =>{
     });
 
     await Post.bulkCreate(postData);
+
+    await Comment.bulkCreate(commentData);
 
     process.exit(0);
 }

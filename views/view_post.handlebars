@@ -1,6 +1,13 @@
 <div class="new-post-box">
     <div class="posts">
-        {{> view_post_details }}
+        <section class="card" data-id="{{post.id}}">
+            <div class="card-head">
+                Posted by {{post.user.username}} at {{format_date post.updatedAt}}
+            </div>
+            <div class="card-body">
+                {{post.post}}
+            </div>
+        </section>
     </div>
     <h3>Leave a comment</h3>
     <form id="new-comment-form">

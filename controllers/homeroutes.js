@@ -92,7 +92,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
             post,
             loggedIn: req.session.loggedIn,
             // Adding this because I will need to read it in for the comment
-            user: {username: req.session.username}, 
+            // user: {username: req.session.username}, 
         });
     } catch (err) {
         res.json(err);

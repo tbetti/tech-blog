@@ -31,7 +31,6 @@ router.post('/', withAuth, async (req, res) => {
         }
         console.log(commentBody);
         const newComment = await Comment.create(commentBody);
-        // const newComment = await Comment.create(req.body);
 
         res.status(200).json(newComment);
     } catch (err) {

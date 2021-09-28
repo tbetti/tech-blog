@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 // GET route to homepage
 router.get('/', async (req, res) => {
@@ -76,7 +76,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
         const rawPost = await Post.findByPk(req.params.id,
             {
                 include: [{ model: User }, 
-                    //{ model: Comment }
+                    { model: Comment }
                 ]
             });
 

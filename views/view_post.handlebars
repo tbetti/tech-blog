@@ -9,10 +9,16 @@
             </div>
         </section>
     </div>
-    <h3>Leave a comment</h3>
-    <form id="new-comment-form">
-        <textarea id="new-comment"></textarea>
-        <input type="submit" class="submit">
-    </form>
+    <div class="comments">
+        <h3>Comments</h3>
+        {{#each post.comments}}
+        {{> comment_details }}
+        {{/each}}
+        <h3 id="leave-comment">Leave a comment</h3>
+        <form id="new-comment-form">
+            <textarea id="new-comment"></textarea>
+            <input type="submit" class="submit">
+        </form>
+    </div>
 </div>
 <script src="/js/viewPostComment.js"></script>

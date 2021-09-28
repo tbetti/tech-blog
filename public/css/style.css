@@ -22,17 +22,24 @@
     padding-right: 3%;
     justify-content: space-between;
 }
+.nav-bar h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 48px;
+    margin-top: 0.8%;
+    margin-bottom: 0.8%;
+}
 /* Styling for navbar menu */
 .nav-bar ul{
     display: flex;
     width: 30%;
+    margin-top: 0.6%;
+    margin-bottom: 0.6%;
     padding-left: 0px;
     text-align: center;
     list-style-type: none;
 }
 .nav-bar ul li{
-    margin: 2%;
-    width: 32%;
+    margin: 4%;
 }
 .nav-bar ul li:hover{
     cursor: pointer;
@@ -137,12 +144,21 @@
     box-shadow: 12px 12px 2px 1px var(--middle);
     background-color: white;
     margin: 2%;
-    padding: 2%;
+    padding: 7%;
+}
+#new-post-form label{
+    font-size: 24px;
+}
+#new-post-form .title{
+    width: 100%;
+    margin-bottom: 5%;
+    padding: 1%;
+    border: 1px solid black;
 }
 #new-post-form textarea, #new-comment-form textarea{
-    width: 90%;
+    width: 100%;
     height: 25%;
-    margin: 5%;
+    margin-bottom: 5%;
     padding: 2%;
     border: 1px solid black;
 }

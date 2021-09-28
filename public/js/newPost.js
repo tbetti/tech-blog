@@ -1,12 +1,13 @@
 const postHandler = async (event) =>{
     event.preventDefault();
 
+    const title = document.querySelector('#title').value.trim();
     const newPost = document.querySelector('#new-post').value.trim();
 
     if(newPost){
         const response = await fetch('/api/posts', {
             method: 'POST',
-            body: JSON.stringify({newPost}),
+            body: JSON.stringify({title, newPost}),
             headers: ({'Content-Type': 'application/json'})
         });
 

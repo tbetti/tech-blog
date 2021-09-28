@@ -37,6 +37,7 @@ router.post('/', withAuth, async(req, res) =>{
     try{
         // Read in new post from body (connected at public/js/newPost.js)
         const postBody = {
+            title: req.body.title,
             post: req.body.newPost, 
             user_id: req.session.userId
         }

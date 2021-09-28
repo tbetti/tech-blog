@@ -1,17 +1,21 @@
 [
     {
+        "title": "Richmond Update",
         "post": "Richmond's not in his room He's supposed to be in his room Why is he not in his room?",
         "user_id": 1
     },
     {
+        "title": "IT Suggestion",
         "post": "Have you tried turning it off and on again?",
         "user_id": 2
     },
     {
+        "title": "Yay!",
         "post": "Just got promoted to relationship manager in the IT department!",
         "user_id": 3
     },
     {
+        "title": "New Band",
         "post": "Check out this new band - it really helped me get through",
         "user_id": 4
     }

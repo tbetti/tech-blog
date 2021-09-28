@@ -125,9 +125,19 @@
     cursor: pointer;
 }
 .card-head{
+    display: flex;
+    justify-content: space-between;
     padding: 1%;
     background-color: var(--medium-dark);
     color: white;
+}
+.card-head h2{
+    margin-bottom: 0%;
+    font-size: 28px;
+}
+.card-head p{
+    margin-bottom: 0%;
+    padding-top: 0.5%;
 }
 .card-body{
     padding: 1%;

@@ -2,7 +2,8 @@
     <div class="posts">
         <section class="card" data-id="{{post.id}}">
             <div class="card-head">
-                Posted by {{post.user.username}} at {{format_date post.updatedAt}}
+                <h2>{{post.title}}</h2>
+                <p>Posted by {{post.user.username}} at {{format_date post.updatedAt}}</p>
             </div>
             <div class="card-body">
                 {{post.post}}
@@ -10,11 +11,11 @@
         </section>
     </div>
     <div class="comments">
-        <h3>Comments</h3>
+        <h3>Comments:</h3>
         {{#each post.comments}}
         {{> comment_details }}
         {{/each}}
-        <h3 id="leave-comment">Leave a comment</h3>
+        <h3 id="leave-comment">Leave a comment:</h3>
         <form id="new-comment-form">
             <textarea id="new-comment"></textarea>
             <input type="submit" class="submit">

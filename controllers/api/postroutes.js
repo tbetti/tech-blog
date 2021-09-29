@@ -51,4 +51,23 @@ router.post('/', withAuth, async(req, res) =>{
     }
 })
 
+// Edit post
+router.put('/:id', async (req, res)=>{
+    try{
+        const postBody = {
+            title: req.body.title,
+            post: req.body.newPost
+        }
+
+        const postData = await Post.update(postBody, {
+            where: {id: req.params.id},
+            individualHooks: true
+        });
+        res.status(200).json(postData);
+        res.redirect('/dashboard');
+    }catch(err){
+        res.status(500).json(err);
+    }
+})
+
 module.exports = router;

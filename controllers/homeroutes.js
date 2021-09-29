@@ -41,7 +41,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
         // Send posts to dashboard.handlebars
         res.render('dashboard', {
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            currentUser: req.session.username
         });
     } catch (err) {
         res.json(err);
@@ -80,20 +81,33 @@ router.get('/post/:id', withAuth, async (req, res) => {
                 ]
             });
 
-        // if I try the code below, the page renders blank with {}.
-        // const post = rawPost.map(p=> p.get({plain:true}));
-        // if I try the code below, the page renders, but I can't get the corect values read in
-        // this piece of code also stops working when I add {model: Comment (line 55)}
-        // const post = rawPost.dataValues;
-        // single item - don't need to do map
         const post = rawPost.get({plain: true});
         console.log(post);
         res.render('view_post', {
             post,
             loggedIn: req.session.loggedIn,
             currentUser: req.session.username
-            // Adding this because I will need to read it in for the comment
-            // user: {username: req.session.username}, 
+        });
+    } catch (err) {
+        res.json(err);
+    }
+})
+
+// GET route to edit page for individual post
+router.get('/edit/:id', withAuth, async (req, res) => {
+    try {
+        // find post by id
+        const rawPost = await Post.findByPk(req.params.id,
+            {
+                include: [{ model: User }]
+            });
+
+        const post = rawPost.get({plain: true});
+        console.log(post);
+        res.render('edit_post', {
+            post,
+            loggedIn: req.session.loggedIn,
+            currentUser: req.session.username
         });
     } catch (err) {
         res.json(err);

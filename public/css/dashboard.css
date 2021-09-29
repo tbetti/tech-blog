@@ -13,9 +13,6 @@
     box-shadow: 12px 12px 2px 1px var(--middle);
     background-color: white;
 }
-.card:hover{
-    cursor: pointer;
-}
 .card-head{
     display: flex;
     justify-content: space-between;
@@ -30,6 +27,10 @@
 .card-head p{
     margin-bottom: 0%;
     padding-top: 0.5%;
+}
+.card-title:hover, .card-options p:hover{
+    cursor: pointer;
+    color: var(--medium-light);
 }
 .card-options{
     display: flex;

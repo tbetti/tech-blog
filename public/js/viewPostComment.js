@@ -7,7 +7,7 @@ const displayOptions = async ()=>{
 
     // If card username and req.session.username match, display edit and delete buttons
     if(cardUsername===sessionUsername){
-        cardOptions.style.display = 'block';
+        cardOptions.style.display = 'flex';
     }
 }
 

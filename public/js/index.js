@@ -1,9 +1,10 @@
 // Define buttons
 const dashBtn = document.querySelector('#dashboard-btn');
 const postBtn = document.querySelector('#post-btn');
-const postCard = document.querySelectorAll('.card');
+const postCard = document.querySelectorAll('.card-title');
 const loginBtn = document.querySelector('#log-in-btn');
 const homeBtn = document.querySelector('#home-btn');
+const editBtn = document.querySelectorAll('#edit');
 
 // Handlers to go to different pages when elements are selected
 // Go to homepage
@@ -27,13 +28,22 @@ const newPostHandler = (event) =>{
 // Go to new page to view post and leave comment
 const postCardHandler = (event) =>{
     event.preventDefault();
-    console.log(event.path[1].id);
+    console.log(event.path[0].attributes[1].value);
 
-    const cardId = event.path[1].id;
+    const cardId = event.path[0].attributes[1].value;
     if(cardId !== ''){
         document.location.replace(`/post/${cardId}`);
     }
 }
+// Edit post handler
+const editPostHandler = (event) =>{
+    event.preventDefault();
+
+    const cardId = event.path[1].dataset.editid;
+    document.location.replace(`/edit/${cardId}`);
+}
+// Delete post handler
+
 // Go to login page
 const loginBtnHandler = (event) =>{
     event.preventDefault();
@@ -53,3 +63,8 @@ if(loginBtn){
 postCard.forEach(element =>{
     element.addEventListener('click', postCardHandler);
 });
+if(editBtn){
+    editBtn.forEach(element=>{
+        element.addEventListener('click', editPostHandler);
+    })
+}

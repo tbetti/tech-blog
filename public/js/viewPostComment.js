@@ -1,3 +1,17 @@
+const displayOptions = async ()=>{
+    const cardOptions = document.querySelector('.card-options')
+    // Get username from the comment box
+    const cardUsername = document.querySelector('#username').innerHTML;
+    // Get the req.session.username
+    const sessionUsername = document.querySelector('.card-options').dataset.currentuser;
+
+    // If card username and req.session.username match, display edit and delete buttons
+    if(cardUsername===sessionUsername){
+        cardOptions.style.display = 'block';
+    }
+}
+
+// Create new comment
 const commentHandler = async (event) =>{
     event.preventDefault();
 
@@ -20,4 +34,5 @@ const commentHandler = async (event) =>{
     }
 };
 
+displayOptions();
 document.querySelector('#new-comment-form').addEventListener('submit', commentHandler);

@@ -31,6 +31,13 @@
     margin-bottom: 0%;
     padding-top: 0.5%;
 }
+.card-options{
+    display: flex;
+    justify-content: flex-end;
+}
+.card-options p{
+    margin-left: 6%;
+}
 .card-body{
     padding: 1%;
 }

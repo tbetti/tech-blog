@@ -22,7 +22,7 @@ h2{
 }
 
 /* Styling for navbar */
-span{
+.nav-bar span{
     color: var(--medium-light);
 }
 .nav-bar{

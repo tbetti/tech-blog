@@ -91,6 +91,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
         res.render('view_post', {
             post,
             loggedIn: req.session.loggedIn,
+            currentUser: req.session.username
             // Adding this because I will need to read it in for the comment
             // user: {username: req.session.username}, 
         });

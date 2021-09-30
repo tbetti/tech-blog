@@ -1,3 +1,5 @@
+const newCommentForm = document.querySelector('#new-comment-form');
+
 const displayOptions = async ()=>{
     const cardOptions = document.querySelector('.card-options')
     // Get username from the comment box
@@ -35,4 +37,6 @@ const commentHandler = async (event) =>{
 };
 
 displayOptions();
-document.querySelector('#new-comment-form').addEventListener('submit', commentHandler);
+if(newCommentForm){
+    newCommentForm.addEventListener('submit', commentHandler);
+}

@@ -13,6 +13,7 @@ const displayOptions = async ()=>{
     }
 }
 
+
 // Create new comment
 const commentHandler = async (event) =>{
     event.preventDefault();
@@ -32,6 +33,7 @@ const commentHandler = async (event) =>{
             document.location.reload();
         }else{
             // Don't know what to put here
+            console.log("comment response", response);
         }
     }
 };

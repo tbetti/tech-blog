@@ -25,7 +25,6 @@ router.get('/', async (req, res) => {
 // GET route to dashboard that requires log-in 
 router.get('/dashboard', withAuth, async (req, res) => {
     // If we try to go to the dashbard w/o logging in, we will be redirected to login page
-    console.log(req.session);
     try {
         const rawPosts = await Post.findAll({
             include: [{
@@ -35,7 +34,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
             order: [['updatedAt', 'DESC']],
             limit: 25
         })
-        console.log(rawPosts, req.body);
         const posts = rawPosts.map((post) => post.get({ plain: true }));
         
         // Send posts to dashboard.handlebars
@@ -76,8 +74,9 @@ router.get('/post/:id', withAuth, async (req, res) => {
         // find post by id
         const rawPost = await Post.findByPk(req.params.id,
             {
-                include: [{ model: User }, 
-                    { model: Comment }
+                include: [User, 
+                    { model: Comment,
+                        include: [User] }
                 ]
             });
 
@@ -103,7 +102,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             });
 
         const post = rawPost.get({plain: true});
-        console.log(post);
         res.render('edit_post', {
             post,
             loggedIn: req.session.loggedIn,

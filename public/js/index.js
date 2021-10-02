@@ -36,7 +36,7 @@ const postCardHandler = (event) =>{
     }
 }
 // Edit post handler
-const editPostHandler = (event) =>{
+const editBtnHandler = (event) =>{
     event.preventDefault();
 
     const cardId = event.path[1].dataset.editid;
@@ -65,6 +65,6 @@ postCard.forEach(element =>{
 });
 if(editBtn){
     editBtn.forEach(element=>{
-        element.addEventListener('click', editPostHandler);
+        element.addEventListener('click', editBtnHandler);
     })
 }

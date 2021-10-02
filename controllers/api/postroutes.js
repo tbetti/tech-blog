@@ -14,23 +14,26 @@ router.get('/', async (req, res) =>{
 })
 
 // Display single post by id
-router.get('/:id', async(req, res) =>{
-    try{
-        // ensure id exists
-        const exists = await Post.findByPk(req.params.id);
-        if(!exists){
-            res.status(400).json(`Post at id ${req.params.id} does not exist`);
-        }
+// router.get('/:id', async(req, res) =>{
+//     try{
+//         // ensure id exists
+//         const exists = await Post.findByPk(req.params.id);
+//         if(!exists){
+//             res.status(400).json(`Post at id ${req.params.id} does not exist`);
+//         }
         
-        const post = await Post.findByPk(
-            req.params.id,
-            {include: [{ model: User }, { model: Comment }]}
-        );
-        res.status(200).json(post);
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
+//         const postData = await Post.findByPk(
+//             req.params.id,
+//             {include: [User, {model: Comment,
+//             include: [User]}]}
+//         );
+//         // res.status(200).json(post);
+//         const post = postData.get({plain:true});
+//         console.log(post);
+//     }catch(err){
+//         res.status(500).json(err);
+//     }
+// })
 
 // Add new post
 router.post('/', withAuth, async(req, res) =>{

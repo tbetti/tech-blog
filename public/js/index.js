@@ -5,6 +5,7 @@ const postCard = document.querySelectorAll('.card-title');
 const loginBtn = document.querySelector('#log-in-btn');
 const homeBtn = document.querySelector('#home-btn');
 const editBtn = document.querySelectorAll('#edit');
+const deleteBtn = document.querySelectorAll('#delete');
 
 // Handlers to go to different pages when elements are selected
 // Go to homepage
@@ -43,6 +44,20 @@ const editBtnHandler = (event) =>{
     document.location.replace(`/edit/${cardId}`);
 }
 // Delete post handler
+const deleteBtnHandler = (event) =>{
+    event.preventDefault();
+
+    const cardId = event.path[1].dataset.deleteid;
+    const confirmed = confirm("Are you sure you want to delete?");
+
+    if(confirmed){
+        fetch(`/api/posts/${cardId}`, {
+            method: 'DELETE',
+            headers: ({'Content-Type': 'application/json'})
+        });
+        document.location.reload();
+    }
+}
 
 // Go to login page
 const loginBtnHandler = (event) =>{
@@ -66,5 +81,10 @@ postCard.forEach(element =>{
 if(editBtn){
     editBtn.forEach(element=>{
         element.addEventListener('click', editBtnHandler);
+    })
+}
+if(deleteBtn){
+    deleteBtn.forEach(element=>{
+        element.addEventListener('click', deleteBtnHandler);
     })
 }

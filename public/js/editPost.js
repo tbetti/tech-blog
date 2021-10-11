@@ -17,7 +17,8 @@ const editHandler = async (event) =>{
             // If login information is correct, take user to the dashboard
             document.location.replace('/dashboard');
         }else{
-            // Don't know what to put here
+            // Redirect to an error page
+            document.location.replace('/error');
         }
     }
 };

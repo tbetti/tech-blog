@@ -32,8 +32,8 @@ const commentHandler = async (event) =>{
             // If login information is correct, take user to the dashboard
             document.location.reload();
         }else{
-            // Don't know what to put here
-            console.log("comment response", response);
+            // Redirect to an error page
+            document.location.replace('/error');
         }
     }
 };

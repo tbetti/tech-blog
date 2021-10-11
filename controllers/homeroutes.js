@@ -112,4 +112,9 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     }
 })
 
+// Render error page
+router.get('/error', (req, res) =>{
+    res.render('error');
+})
+
 module.exports = router;

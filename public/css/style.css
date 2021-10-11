@@ -57,6 +57,22 @@ h2{
     color: var(--medium-light);
 }
 
+/* Button styling */
+.submit{
+    width: 30%;
+    padding: 2%;
+    margin-right: 35%;
+    margin-left: 35%;
+    background-color: var(--medium-light);
+    color: white;
+    border-radius: 25px;
+    border: none;
+}
+.submit:hover{
+    cursor: pointer;
+    background-color: var(--middle);
+}
+
 /* Styling for footer */
 footer{
     background-color: var(--dark);

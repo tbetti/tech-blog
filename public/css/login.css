@@ -30,20 +30,6 @@
 .form-control{
     width: 100%;
 }
-.submit{
-    width: 30%;
-    padding: 2%;
-    margin-right: 35%;
-    margin-left: 35%;
-    background-color: var(--medium-light);
-    color: white;
-    border-radius: 25px;
-    border: none;
-}
-.submit:hover{
-    cursor: pointer;
-    background-color: var(--middle);
-}
 
 /* Styling for messages if login/register fails */
 .message{

@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
 })
 
 // Add new comment
-// Add back in withAuth
 router.post('/', withAuth, async (req, res) => {
     try {
         // how will we get post_id?

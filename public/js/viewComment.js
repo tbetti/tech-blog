@@ -1,4 +1,4 @@
-const newCommentForm = document.querySelector('#new-comment-form');
+const newCommentForm = document.querySelectorAll('#new-comment-form');
 
 const displayOptions = async ()=>{
     const cardOptions = document.querySelector('.card-options')
@@ -40,5 +40,5 @@ const commentHandler = async (event) =>{
 
 displayOptions();
 if(newCommentForm){
-    newCommentForm.addEventListener('submit', commentHandler);
+    newCommentForm.forEach(element => addEventListener('submit', commentHandler));
 }
